@@ -1,7 +1,7 @@
 """
 Created on Thu Jun  5 16:53:15 2025
 
-@author: valgc
+@author: valentian gonzalez cassola
 """
 
 # Proyecto de Análisis de Datos - "Mi modulo"
