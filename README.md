@@ -1,7 +1,7 @@
 """
 Created on Thu Jun  5 16:53:15 2025
 
-@author: valentian gonzalez cassola
+@author: valentina gonzalez cassola
 """
 
 # Proyecto de Análisis de Datos - "Mi modulo"
@@ -15,7 +15,7 @@ Las funcionalidades son análisis descriptivo, análisis gráfico, generación d
 
 
 
-### Funcionalidades Principales
+### Funcionalidades 
 
 #### 1. **Resumen Estadístico**
 Clases como `ResumenNumerico` y `ResumenGrafico` permiten:
@@ -36,7 +36,7 @@ La clase `Dados` permite realizar:
 - Bootstrap para proporciones.
 - Test de hipótesis usando Chi-cuadrado para frecuencias observadas vs esperadas.
 
-### 📈 Ejemplo de Uso
+### Ejemplo de Uso
 
 ```python
 # Generar datos normales
