@@ -1,55 +1,102 @@
+﻿
 """
+
 Created on Thu Jun  5 16:53:15 2025
 
 @author: valentina gonzalez cassola
+
 """
 
-# Proyecto de Análisis de Datos - "Mi modulo"
-
-## Descripción del Proyecto
-"""
-Este proyecto contiene  clases y funciones para facilitar el análisis estadístico de datos. 
+Este proyecto contiene  clases y funciones para facilitar el análisis estadístico de datos.
 
 Las funcionalidades son análisis descriptivo, análisis gráfico, generación de datos, modelado estadístico (regresión lineal y logística) e inferencia estadística mediante métodos clásicos y bootstrap.
+
 """
 
 
+\# Proyecto de Análisis de Datos - "Mi modulo"
 
-### Funcionalidades 
+\## Descripción del Proyecto
 
-#### 1. **Resumen Estadístico**
-Clases como `ResumenNumerico` y `ResumenGrafico` permiten:
-- Calcular media, mediana, desviación estándar, cuartiles y varianza.
-- Generar histogramas, QQ-plots y curvas de densidad mediante distintos núcleos (Gaussiano, Uniforme, Cuadrático, Triangular).
+\## Estructura del Código
 
-#### 2. **Generación de Datos**
-Con `GeneradoraDeDatos` se pueden simular distribuciones:
-- Normal, Bootstrap, T de Student, Uniforme y mezcla de distribuciones.
+\### `Resumen`
 
-#### 3. **Modelos de Regresión**
-- `RegresionLinealSimple` y `RegresionLinealMultiple`: permite entrenamiento, predicción, intervalos de confianza y visualización.
-- `RegresionLogistica`: ajuste del modelo, predicción con umbral, matriz de confusión y curva ROC.
+Realiza cálculos estadísticos básicos:
 
-#### 4. **Inferencia Estadística**
-La clase `Dados` permite realizar:
-- Cálculo de intervalos de confianza.
-- Bootstrap para proporciones.
-- Test de hipótesis usando Chi-cuadrado para frecuencias observadas vs esperadas.
+- Media, Mediana
+- Desvío estándar, Varianza
+- Cuartiles, Mínimo y Máximo
 
-### Ejemplo de Uso
+\---
 
-```python
-# Generar datos normales
-generador = GeneradoraDeDatos(tamaño=100)
-datos = generador.generar_datos_dist_norm(media=0, varianza=1)
+\### `Histograma`
 
-# Calcular estadísticos
-resumen = ResumenNumerico(datos)
-print(resumen.generacion_resumen_numerico())
+Permite:
 
-# Ajustar modelo lineal
-modelo = RegresionLinealSimple(x, y)
-modelo.ajustar_modelo()
-modelo.graficar_recta_ajustada()
-```
+- Generar histogramas normalizados
+- Estimar densidades con distintos \*\*kernels\*\*: gaussiano, uniforme, cuadrático, triangular
+- Graficar estimaciones y QQ plot
 
+
+\---
+
+\### `GeneradoraDeDatos`
+
+Genera muestras simuladas desde distribuciones:
+
+- Normal
+- Uniforme
+- T de Student
+- Distribución mixta tipo BS
+
+Incluye funciones para calcular curvas teóricas de densidad.
+
+\---
+
+\### `Regresion` (y subclases)
+
+Modelos ajustables:
+
+- `RegresionLinealSimple`
+- `RegresionLinealMultiple`
+- `RegresionLogistica`
+
+Funciones destacadas:
+
+- Ajuste del modelo (`ajustar\_modelo`)
+- Predicción e intervalos
+- Visualización de residuos
+- Evaluación de supuestos
+- Cálculo de R², p-valores, t-tests
+
+\---
+
+\### `Estadistica`
+
+Herramientas auxiliares como:
+
+- Análisis de varianza (ANOVA)
+
+\---
+
+
+\##  Ejemplo de uso
+
+\```python
+
+datos = GeneradoraDeDatos(1000).generar\_datos\_dist\_norm(0, 1)
+
+resumen = Resumen(datos)
+
+resumen.muestra\_resumen()
+
+hist = Histograma(datos)
+
+hist.grafico\_histograma(0.2)
+
+hist.grafico\_densidad\_nucleo(0.2, 'gaussiano')
+
+\```
+
+\---
